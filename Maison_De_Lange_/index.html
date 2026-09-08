@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison De L'ange — 브랜드 자료집</title>
+<meta name="description" content="메종 드 랑쥬(Maison De L'ange) 브랜드 자료집 — 컨셉, 아이덴티티, 룩북.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root {
+    --pearl: #E3DDDA;
+    --cavern: #E1C1C2;
+    --rose: #CCA3AB;
+    --ink: #3A3236;
+    --muted: #8C7C81;
+    --page: #FAF6F5;
+    --card: #FFFFFF;
+    --maxw: 1000px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+                 "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; width: 100%; height: auto; }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; }
+  .hero img { width: 100%; }
+  .hero-meta {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 28px 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 18px;
+    align-items: baseline;
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: .02em;
+  }
+  .hero-meta strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- nav ---------- */
+  nav.toc {
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(250,246,245,.92);
+    backdrop-filter: saturate(1.2) blur(8px);
+    border-bottom: 1px solid var(--pearl);
+    margin-top: 28px;
+  }
+  nav.toc ul {
+    max-width: var(--maxw); margin: 0 auto; padding: 0 12px;
+    display: flex; gap: 2px; list-style: none;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  nav.toc ul::-webkit-scrollbar { display: none; }
+  nav.toc a {
+    display: block; padding: 12px 12px;
+    color: var(--muted); text-decoration: none;
+    font-size: 13.5px; white-space: nowrap;
+    border-bottom: 2px solid transparent;
+  }
+  nav.toc a:hover, nav.toc a:focus-visible { color: var(--ink); border-bottom-color: var(--rose); }
+
+  /* ---------- sections ---------- */
+  .section { max-width: var(--maxw); margin: 0 auto; padding: 56px 20px 8px; }
+  .section-head { margin-bottom: 22px; }
+  .section-head h2 {
+    margin: 0 0 4px; font-size: 21px; font-weight: 600; letter-spacing: -.01em;
+  }
+  .section-head p { margin: 0; color: var(--muted); font-size: 14px; }
+  .section-head::after {
+    content: ""; display: block; width: 46px; height: 2px;
+    background: var(--rose); margin-top: 14px;
+  }
+
+  .panel { margin: 0 0 34px; }
+  .panel-btn {
+    display: block; width: 100%; padding: 0; border: 0; cursor: zoom-in;
+    background: var(--card);
+    border-radius: 3px; overflow: hidden;
+    box-shadow: 0 1px 2px rgba(58,50,54,.06), 0 8px 24px -12px rgba(58,50,54,.18);
+  }
+  .panel-btn:focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
+  .panel figcaption {
+    margin-top: 9px; color: var(--muted);
+    font-size: 12.5px; letter-spacing: .01em;
+  }
+
+  .break { margin: 40px auto 8px; max-width: 1240px; padding: 0 20px; }
+  .break .panel-btn { border-radius: 3px; }
+
+  /* ---------- footer ---------- */
+  footer {
+    max-width: var(--maxw); margin: 0 auto; padding: 44px 20px 72px;
+    border-top: 1px solid var(--pearl); margin-top: 40px;
+    color: var(--muted); font-size: 13px;
+  }
+  footer p { margin: 0 0 4px; }
+
+  /* ---------- lightbox ---------- */
+  .lb {
+    position: fixed; inset: 0; z-index: 100; display: none;
+    background: rgba(38,32,35,.94);
+    padding: 24px; overflow: auto; cursor: zoom-out;
+  }
+  .lb[open] { display: block; }
+  .lb img { max-width: 1600px; margin: 0 auto; border-radius: 2px; }
+  .lb-cap {
+    max-width: 1600px; margin: 12px auto 0;
+    color: rgba(255,255,255,.72); font-size: 13px; text-align: center;
+  }
+  .lb-close {
+    position: fixed; top: 14px; right: 16px;
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.3); background: rgba(0,0,0,.35);
+    color: #fff; font-size: 20px; line-height: 1; cursor: pointer;
+  }
+  .lb-close:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+  @media (max-width: 640px) {
+    .section { padding: 40px 14px 4px; }
+    .panel { margin-bottom: 26px; }
+    .lb { padding: 10px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+  @media print {
+    nav.toc, .lb, .lb-close { display: none !important; }
+    .panel-btn { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="images/p00.webp" width="1281" height="721" alt="Maison De L'ange 브랜드 자료집 커버">
+</header>
+
+<div class="hero-meta">
+  <span><strong>Maison De L'ange</strong> 메종 드 랑쥬</span>
+  <span>브랜드 자료집</span>
+  <span>윤지우 · qwedlikg@gmail.com</span>
+</div>
+
+<nav class="toc" aria-label="목차">
+  <ul>
+<li><a href="#brand">브랜드</a></li>
+<li><a href="#muse">무드 &amp; 뮤즈</a></li>
+<li><a href="#identity">아이덴티티</a></li>
+<li><a href="#look1">Look 01</a></li>
+<li><a href="#look2">Look 02</a></li>
+<li><a href="#look3">Look 03</a></li>
+<li><a href="#closing">클로징</a></li>
+  </ul>
+</nav>
+
+<main>
+<section class="section" id="brand">
+      <header class="section-head">
+        <h2>브랜드</h2>
+        <p>메종 드 랑쥬가 어떤 세계를 그리는지</p>
+      </header>
+      <figure class="panel">
+      <button class="panel-btn" type="button" data-cap="About brand — 브랜드 정의" aria-label="About brand — 브랜드 정의 크게 보기">
+        <img src="images/p01.webp" width="1281" height="721" alt="About brand — 브랜드 정의" loading="lazy" decoding="async">
+      </button>
+      <figcaption>About brand — 브랜드 정의</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Concept — Day dream / Sweet / Romantic" aria-label="Concept — Day dream / Sweet / Romantic 크게 보기">
+        <img src="images/p02.webp" width="1281" height="721" alt="Concept — Day dream / Sweet / Romantic" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Concept — Day dream / Sweet / Romantic</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Brand Story" aria-label="Brand Story 크게 보기">
+        <img src="images/p03.webp" width="1281" height="721" alt="Brand Story" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Brand Story</figcaption>
+    </figure>
+    </section>
+<section class="section" id="muse">
+      <header class="section-head">
+        <h2>무드 &amp; 뮤즈</h2>
+        <p>브랜드의 얼굴과 분위기</p>
+      </header>
+      <figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Moodboard" aria-label="Moodboard 크게 보기">
+        <img src="images/p04.webp" width="1281" height="720" alt="Moodboard" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Moodboard</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Brand Muse — Pure Angel" aria-label="Brand Muse — Pure Angel 크게 보기">
+        <img src="images/p05.webp" width="1281" height="720" alt="Brand Muse — Pure Angel" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Brand Muse — Pure Angel</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Model — 룩 &amp; 캐릭터 시트" aria-label="Model — 룩 &amp; 캐릭터 시트 크게 보기">
+        <img src="images/p06.webp" width="1281" height="720" alt="Model — 룩 &amp; 캐릭터 시트" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Model — 룩 &amp; 캐릭터 시트</figcaption>
+    </figure>
+    </section>
+<section class="section" id="identity">
+      <header class="section-head">
+        <h2>아이덴티티</h2>
+        <p>로고 시스템과 컬러 시스템</p>
+      </header>
+      <figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Brand Logos — 기본 로고와 시즌 배리에이션" aria-label="Brand Logos — 기본 로고와 시즌 배리에이션 크게 보기">
+        <img src="images/p07.webp" width="1281" height="720" alt="Brand Logos — 기본 로고와 시즌 배리에이션" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Brand Logos — 기본 로고와 시즌 배리에이션</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Symbol / Initial / Wordmark — 용도별 활용" aria-label="Symbol / Initial / Wordmark — 용도별 활용 크게 보기">
+        <img src="images/p08.webp" width="1281" height="720" alt="Symbol / Initial / Wordmark — 용도별 활용" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Symbol / Initial / Wordmark — 용도별 활용</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Color system — Pearl Bush · Cavern Pink · Whisper of Rose" aria-label="Color system — Pearl Bush · Cavern Pink · Whisper of Rose 크게 보기">
+        <img src="images/p09.webp" width="1281" height="720" alt="Color system — Pearl Bush · Cavern Pink · Whisper of Rose" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Color system — Pearl Bush · Cavern Pink · Whisper of Rose</figcaption>
+    </figure>
+    </section>
+<section class="break" aria-label="You can do whatever you want">
+      <button class="panel-btn" type="button" data-cap="You can do whatever you want" aria-label="You can do whatever you want 크게 보기">
+        <img src="images/p10.webp" width="1281" height="720" alt="You can do whatever you want" loading="lazy" decoding="async">
+      </button>
+    </section>
+<section class="section" id="look1">
+      <header class="section-head">
+        <h2>Look 01</h2>
+        <p>화이트 코르셋 미니 드레스</p>
+      </header>
+      <figure class="panel">
+      <button class="panel-btn" type="button" data-cap="LookBook — 프론트 / 백" aria-label="LookBook — 프론트 / 백 크게 보기">
+        <img src="images/p11.webp" width="1281" height="687" alt="LookBook — 프론트 / 백" loading="lazy" decoding="async">
+      </button>
+      <figcaption>LookBook — 프론트 / 백</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Clothes detail" aria-label="Clothes detail 크게 보기">
+        <img src="images/p12.webp" width="1281" height="687" alt="Clothes detail" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Clothes detail</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Studio shot" aria-label="Studio shot 크게 보기">
+        <img src="images/p13.webp" width="1281" height="687" alt="Studio shot" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Studio shot</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Concept shot" aria-label="Concept shot 크게 보기">
+        <img src="images/p14.webp" width="1281" height="687" alt="Concept shot" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Concept shot</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Daily shot" aria-label="Daily shot 크게 보기">
+        <img src="images/p15.webp" width="1281" height="687" alt="Daily shot" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Daily shot</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Outfit info" aria-label="Outfit info 크게 보기">
+        <img src="images/p16.webp" width="1278" height="687" alt="Outfit info" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Outfit info</figcaption>
+    </figure>
+    </section>
+<section class="section" id="look2">
+      <header class="section-head">
+        <h2>Look 02</h2>
+        <p>핑크 레이스 롱 드레스</p>
+      </header>
+      <figure class="panel">
+      <button class="panel-btn" type="button" data-cap="LookBook — 프론트 / 백" aria-label="LookBook — 프론트 / 백 크게 보기">
+        <img src="images/p17.webp" width="1281" height="688" alt="LookBook — 프론트 / 백" loading="lazy" decoding="async">
+      </button>
+      <figcaption>LookBook — 프론트 / 백</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Clothes detail" aria-label="Clothes detail 크게 보기">
+        <img src="images/p18.webp" width="1281" height="688" alt="Clothes detail" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Clothes detail</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Studio shot" aria-label="Studio shot 크게 보기">
+        <img src="images/p19.webp" width="1281" height="688" alt="Studio shot" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Studio shot</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Concept shot" aria-label="Concept shot 크게 보기">
+        <img src="images/p20.webp" width="1281" height="688" alt="Concept shot" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Concept shot</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Daily shot" aria-label="Daily shot 크게 보기">
+        <img src="images/p21.webp" width="1281" height="688" alt="Daily shot" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Daily shot</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Outfit info" aria-label="Outfit info 크게 보기">
+        <img src="images/p22.webp" width="1278" height="688" alt="Outfit info" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Outfit info</figcaption>
+    </figure>
+    </section>
+<section class="section" id="look3">
+      <header class="section-head">
+        <h2>Look 03</h2>
+        <p>핑크 셋업</p>
+      </header>
+      <figure class="panel">
+      <button class="panel-btn" type="button" data-cap="LookBook — 프론트 / 백" aria-label="LookBook — 프론트 / 백 크게 보기">
+        <img src="images/p23.webp" width="1281" height="688" alt="LookBook — 프론트 / 백" loading="lazy" decoding="async">
+      </button>
+      <figcaption>LookBook — 프론트 / 백</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Clothes detail" aria-label="Clothes detail 크게 보기">
+        <img src="images/p24.webp" width="1281" height="688" alt="Clothes detail" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Clothes detail</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Studio shot" aria-label="Studio shot 크게 보기">
+        <img src="images/p25.webp" width="1281" height="688" alt="Studio shot" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Studio shot</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Concept shot" aria-label="Concept shot 크게 보기">
+        <img src="images/p26.webp" width="1281" height="688" alt="Concept shot" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Concept shot</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Daily shot" aria-label="Daily shot 크게 보기">
+        <img src="images/p27.webp" width="1281" height="688" alt="Daily shot" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Daily shot</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Outfit info" aria-label="Outfit info 크게 보기">
+        <img src="images/p28.webp" width="1278" height="688" alt="Outfit info" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Outfit info</figcaption>
+    </figure>
+    </section>
+<section class="section" id="closing">
+      <header class="section-head">
+        <h2>클로징</h2>
+        <p>브랜드 스토리와 제작 정보</p>
+      </header>
+      <figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Brand Final Story" aria-label="Brand Final Story 크게 보기">
+        <img src="images/p29.webp" width="1281" height="719" alt="Brand Final Story" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Brand Final Story</figcaption>
+    </figure>
+<figure class="panel">
+      <button class="panel-btn" type="button" data-cap="Tools &amp; Contact" aria-label="Tools &amp; Contact 크게 보기">
+        <img src="images/p30.webp" width="1281" height="719" alt="Tools &amp; Contact" loading="lazy" decoding="async">
+      </button>
+      <figcaption>Tools &amp; Contact</figcaption>
+    </figure>
+    </section>
+</main>
+
+<footer>
+  <p>Maison De L'ange — 브랜드 자료집</p>
+  <p>Kling AI · Midjourney · Gemini Nano banana · Adobe Photoshop · Adobe Premiere Pro</p>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="이미지 크게 보기">
+  <button class="lb-close" id="lbClose" type="button" aria-label="닫기">&times;</button>
+  <img id="lbImg" src="" alt="">
+  <p class="lb-cap" id="lbCap"></p>
+</div>
+
+<script>
+(function () {
+  var lb = document.getElementById('lb');
+  var lbImg = document.getElementById('lbImg');
+  var lbCap = document.getElementById('lbCap');
+  var lbClose = document.getElementById('lbClose');
+  var last = null;
+
+  function open(btn) {
+    last = btn;
+    lbImg.src = btn.querySelector('img').src;
+    lbImg.alt = btn.dataset.cap || '';
+    lbCap.textContent = btn.dataset.cap || '';
+    lb.setAttribute('open', '');
+    document.body.style.overflow = 'hidden';
+    lbClose.focus();
+  }
+  function close() {
+    lb.removeAttribute('open');
+    lbImg.src = '';
+    document.body.style.overflow = '';
+    if (last) last.focus();
+  }
+
+  document.querySelectorAll('.panel-btn').forEach(function (b) {
+    b.addEventListener('click', function () { open(b); });
+  });
+  lb.addEventListener('click', function (e) { if (e.target !== lbImg) close(); });
+  lbClose.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lb.hasAttribute('open')) close();
+  });
+})();
+</script>
+</body>
+</html>
